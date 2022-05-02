@@ -1,22 +1,31 @@
 import java.util.Random;
+import java.util.Scanner;
 
 class ExpectedValueSimulator {
     public static void main(String[] args) {
-        String sideUp;
+        int headsCount = 0;
+        int tailsCount = 0;
 
         Random rand = new Random();
 
-        int i = rand.nextInt(2);
+        Scanner sc= new Scanner(System.in); //System.in is a standard input stream
+        System.out.print("Enter a number of coinflips: ");
+        int n= sc.nextInt();              //reads string
 
-        if (i == 0)
+        for(int i = 0; i < n; i++)
         {
-            sideUp = "heads";
-        }
-        else
-        {
-            sideUp = "tails";
+            int side = rand.nextInt(2);
+
+            if (side == 0)
+            {
+                headsCount++;
+            }
+            else
+            {
+                tailsCount++;
+            }
         }
 
-        System.out.println(sideUp); // Display the string.
+        System.out.println("total heads = " + headsCount + " total tails = " + tailsCount);
     }
 }
